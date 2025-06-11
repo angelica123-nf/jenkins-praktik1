@@ -4,17 +4,28 @@ pipeline {
             image 'python:3.10'
         }
     }
+    environment {
+        VENV = 'venv'
+    }
 
     stages {
-        stage('Install Dependencies') {
+        stage('Setup Environment & Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                sh '''
+                    python -m venv $VENV
+                    .$VENV/bin/active
+                    pip install --upgrade pip
+                    pip install -r requirements.txt
+                '''
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'pytest test_app.py'
+                sh'''
+                    .$VENV/bin/active
+                    pytest test_app.py
+                '''
             }
         }
 
