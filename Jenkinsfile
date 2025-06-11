@@ -9,8 +9,9 @@ pipeline {
         stage('Setup Environment & Install Dependencies') {
             steps {
                 sh '''
+                    set -e
                     python -m venv venv
-                    source venv/bin/activate
+                    . venv/bin/activate
                     pip install -r requirements.txt
                 '''
             }
@@ -19,7 +20,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 sh '''
-                    source venv/bin/activate
+                    set -e
+                    . venv/bin/activate
                     pytest test_app.py
                 '''
             }
@@ -48,7 +50,7 @@ pipeline {
                     httpMode: 'POST',
                     contentType: 'APPLICATION_JSON',
                     requestBody: groovy.json.JsonOutput.toJson(payload),
-                    url: 'https://discord.com/api/webhooks/....'
+                    url: 'https://discord.com/api/webhooks/1382327645303341138/Xw-XcFCRxwDG_7vvfQCzyxKkEX4F-ZahrbMenT5JX1LalHEW919lwdQxmlN99UauHNcs'
                 )
             }
         }
@@ -61,7 +63,7 @@ pipeline {
                     httpMode: 'POST',
                     contentType: 'APPLICATION_JSON',
                     requestBody: groovy.json.JsonOutput.toJson(payload),
-                    url: 'https://discord.com/api/webhooks/....'
+                    url: 'https://discord.com/api/webhooks/1382327645303341138/Xw-XcFCRxwDG_7vvfQCzyxKkEX4F-ZahrbMenT5JX1LalHEW919lwdQxmlN99UauHNcs'
                 )
             }
         }
