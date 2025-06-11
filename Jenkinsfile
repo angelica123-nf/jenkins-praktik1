@@ -50,7 +50,7 @@ pipeline {
                     httpMode: 'POST',
                     contentType: 'APPLICATION_JSON',
                     requestBody: groovy.json.JsonOutput.toJson(payload),
-                    url: 'https://discord.com/api/webhooks/....' // Gantilah dengan URL yang valid
+                    url: 'https://discord.com/api/webhooks/1382327645303341138/Xw-XcFCRxwDG_7vvfQCzyxKkEX4F-ZahrbMenT5JX1LalHEW919lwdQxmlN99UauHNcs'
                 )
             }
         }
@@ -63,7 +63,7 @@ pipeline {
                     httpMode: 'POST',
                     contentType: 'APPLICATION_JSON',
                     requestBody: groovy.json.JsonOutput.toJson(payload),
-                    url: 'https://discord.com/api/webhooks/....' // Gantilah dengan URL yang valid
+                    url: 'https://discord.com/api/webhooks/1382327645303341138/Xw-XcFCRxwDG_7vvfQCzyxKkEX4F-ZahrbMenT5JX1LalHEW919lwdQxmlN99UauHNcs'
                 )
             }
         }
